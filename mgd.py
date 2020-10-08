@@ -64,8 +64,15 @@ def extract_xyz(t):
     result.append(z)
     return result
 
-def multiple_q_list():
-    return
+def multiple_q_list(all_q_list, m):
+    result = [[],[],[]]
+    for qs in all_q_list:
+        t04 = t04_calculus(qs, m)
+        xyz = extract_xyz(t04)
+        result[0].append(xyz[0])
+        result[1].append(xyz[1])
+        result[2].append(xyz[2])
+    return result
 
 def test():
     l = read_q_list()
@@ -74,5 +81,11 @@ def test():
     print(test, "\n")
     xyz = extract_xyz(test)
     print(xyz)
+    #----------------
+    l1 = read_q_list()
+    l2 = read_q_list()
+    allr = multiple_q_list([l1, l2], float(m))
+    print()
+    print(allr)
 
 test()
